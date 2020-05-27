@@ -1,7 +1,7 @@
 # breeze开源第三方部署
 1. 项目地址 https://github.com/wise2c-devops/breeze
 
-2. 离线百度云地址
+2. 离线百度云地址k8s1.16.9
 
 > 链接：https://pan.baidu.com/s/1t8mnSl8Dsj0xPA8_6bVLSQ 
 
