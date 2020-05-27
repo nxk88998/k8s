@@ -76,4 +76,4 @@ node节点：1台 8核16g 500G硬盘
 # 三、访问http://192.168.1.230:88 部署集群
 
 
-![创建主机](/images/hosts.png)
+![创建主机](images/hosts.png)
