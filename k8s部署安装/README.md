@@ -39,7 +39,7 @@ node节点：1台 8核16g 500G硬盘
 
 > ssh-copy-id 所有主机IP
  
-## 二、获取针对 K8S 某个具体版本的 Breeze 资源文件并启动部署工具，例如此次实验针对刚刚发布的 K8S v1.16.9 
+## 二、获取针对 K8S 某个具体版本的 Breeze 资源文件并启动部署工具，此次实验针对已测试稳定发布的K8S v1.16.9 
 curl -L https://raw.githubusercontent.com/wise2c-devops/breeze/v1.16.9/docker-compose.yml -o docker-compose.yml 
 
 ## 其他centos7.6主机请最小化安装并磁盘划分为
