@@ -21,6 +21,8 @@ node节点：1台 8核16g 500G硬盘
 
 > curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose 
 > chmod +x /usr/local/bin/docker-compose 
+
+> 安装时间较长请使用已经下载好的离线文件
  
 3. 安装 docker 
 
