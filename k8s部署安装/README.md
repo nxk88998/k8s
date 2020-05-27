@@ -84,6 +84,6 @@ node节点：1台 8核16g 500G硬盘
 ## 创建harbor
 ![](images/harbor-images.png)
 ## 创建haproxy
-![](images/haproxy-images.png)
+![](images/loadbalancer-images.png)
 ## 创建kubernetes
 ![](images/kubernetes-images.png)
