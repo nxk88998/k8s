@@ -9,7 +9,7 @@ node节点：1台 8核16g 500G硬盘
 登录 shell 环境，
 执行以下命令开放 防火墙： 
 
-setenforce 0 
+> setenforce 0 
 
 sed --follow-symlinks -i "s/SELINUX=enforcing/SELINUX=disabled/g" /etc/selinux/config 
 
