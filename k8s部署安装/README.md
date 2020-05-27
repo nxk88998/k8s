@@ -79,7 +79,7 @@ node节点：1台 8核16g 500G硬盘
 > timedatectl set-timezone 'Asia/Shanghai' 
 > yum install ntp && systemctl restart ntp 
 
-> 离线包安装方式,解压到部署机
+##  **离线包安装方式,解压到部署机**
 
 > unzip k8s1.16.9.zip
 
