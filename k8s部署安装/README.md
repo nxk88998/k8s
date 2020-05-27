@@ -1,3 +1,6 @@
+# breeze开源第三方部署
+## 项目地址 https://github.com/wise2c-devops/breeze
+
 # k8s部署服务器生产最低需求
 部署机：1台  4核8g 500G硬盘
 master节点：3台 8核8g 500G硬盘
