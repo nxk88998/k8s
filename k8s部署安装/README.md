@@ -40,7 +40,5 @@ curl -L https://raw.githubusercontent.com/wise2c-devops/breeze/v1.16.9/docker-co
 其他centos7.6主机请最小化安装并磁盘划分为
 
 lvm划分磁盘
-
 /boot 200M
-
 /     剩余所有
