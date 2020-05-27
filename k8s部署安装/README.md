@@ -87,3 +87,7 @@ node节点：1台 8核16g 500G硬盘
 ![](images/loadbalancer-images.png)
 ## 创建kubernetes
 ![](images/kubernetes-images.png)
+配置完成后进行安装集群
+
+# 四、检查集群安装情况
+kubectl get node -o wide
