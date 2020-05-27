@@ -18,15 +18,20 @@ firewall-cmd --set-default-zone=trusted
 firewall-cmd --complete-reload 
  
 2. 安装 docker-compose 命令 
+
 curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose 
 chmod +x /usr/local/bin/docker-compose 
  
-3. 安装 docker yum install docker systemctl enable docker && systemctl start docker 
+3. 安装 docker 
+
+yum install docker systemctl enable docker && systemctl start docker 
  
 4. 建立部署主机到其它所有服务器的 ssh 免密登录途径 a) 生成秘钥，执行： 
- ssh-keygen 
+
+ssh-keygen 
  
-5. 针对目标服务器做 ssh 免密登录，依次执行： 
+5. 针对目标服务器做 ssh 免密登录，依次执行：
+
 ssh-copy-id 所有主机IP
  
 ## 二、获取针对 K8S 某个具体版本的 Breeze 资源文件并启动部署工具，例如此次实验针对刚刚发布的 K8S v1.16.9 
