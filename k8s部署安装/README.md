@@ -8,9 +8,13 @@ node节点：1台 8核16g 500G硬盘
 1. 以标准 Minimal 方式安装 CentOS 7.6 (1810) x64 之后(7.4 和 7.5 也支持)，
 登录 shell 环境，
 执行以下命令开放 防火墙： 
+
 setenforce 0 
+
 sed --follow-symlinks -i "s/SELINUX=enforcing/SELINUX=disabled/g" /etc/selinux/config 
+
 firewall-cmd --set-default-zone=trusted 
+
 firewall-cmd --complete-reload 
  
 2. 安装 docker-compose 命令 
