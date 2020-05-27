@@ -60,7 +60,7 @@ node节点：1台 8核16g 500G硬盘
 
 > wget https://github.com/wise2c-devops/breeze/blob/v1.16.9/docker-compose-centos.yml
 
-> mv docker-compose-centos.yml docker-compose.yml 
+> mv docker-compose-centos.yml /usr/bin/docker-compose.yml 
 
 > docker-compose up -d 
 
