@@ -79,6 +79,19 @@ node节点：1台 8核16g 500G硬盘
 timedatectl set-timezone 'Asia/Shanghai'
 yum install ntp && systemctl restart ntp
 
+> 离线包安装方式
+
+> unzip k8s1.16.9.zip
+
+> cd k8s-install-ui
+
+> ssh-keygen
+
+> ssh-copy-id 所有主机IP
+
+> bash install.sh
+
+
 # 三、访问http://192.168.1.230:88 部署集群
 
 ## 创建主机
