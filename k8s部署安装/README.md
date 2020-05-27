@@ -46,7 +46,9 @@ node节点：1台 8核16g 500G硬盘
  
 3. 安装 docker 
 
-> yum install docker systemctl enable docker && systemctl start docker 
+> yum install docker -y 
+
+> systemctl enable docker && systemctl start docker 
  
 4. 建立部署主机到其它所有服务器的 ssh 免密登录途径 a) 生成秘钥，执行： 
 
