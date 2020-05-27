@@ -75,5 +75,15 @@ node节点：1台 8核16g 500G硬盘
 
 # 三、访问http://192.168.1.230:88 部署集群
 
-
+## 创建主机
 ![创建主机](images/hosts.png)
+## 创建docker
+[](images/docker-images.png)
+## 创建etcd
+[](images/etcd-images.png)
+## 创建harbor
+[](images/harbor-images.png)
+## 创建haproxy
+[](images/haproxy-images.png)
+## 创建kubernetes
+[](images/kubernetes-images.png)
