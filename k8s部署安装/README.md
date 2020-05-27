@@ -4,6 +4,7 @@
 2. 离线百度云地址
 
 > 链接：https://pan.baidu.com/s/1t8mnSl8Dsj0xPA8_6bVLSQ 
+
 > 提取码：gvli 
 
 # k8s部署服务器生产最低需求
