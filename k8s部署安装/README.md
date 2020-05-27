@@ -7,6 +7,8 @@
 
 > 提取码：gvli 
 
+> 此包为离线包
+
 # k8s部署服务器生产最低需求
 部署机：1台  4核8g 500G硬盘
 master节点：3台 8核8g 500G硬盘
@@ -73,6 +75,10 @@ node节点：1台 8核16g 500G硬盘
 
 > /     剩余所有
 
+进行时区设定
+timedatectl set-timezone 'Asia/Shanghai'
+yum install ntp && systemctl restart ntp
+
 # 三、访问http://192.168.1.230:88 部署集群
 
 ## 创建主机
@@ -91,3 +97,5 @@ node节点：1台 8核16g 500G硬盘
 
 # 四、检查集群安装情况
 kubectl get node -o wide
+
+
