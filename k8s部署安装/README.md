@@ -11,13 +11,16 @@
 
 # k8s部署服务器生产最低需求
 部署机：1台  4核8g 500G硬盘
+
 master节点：3台 8核8g 500G硬盘
-node节点：1台 8核16g 500G硬盘
+
+node节点：1+N台 8核16g 500G硬盘
 
 测试服务器IP地址
 
 | 角色        | ip地址        |
 |:----------- |:--------------|
+| 虚拟地址    | 192.168.1.229 |
 | 部署机      | 192.168.1.230 |
 | master1     | 192.168.1.231 | 
 | master2     | 192.168.1.231 |  
@@ -109,6 +112,12 @@ node节点：1台 8核16g 500G硬盘
 配置完成后进行安装集群
 
 # 四、检查集群安装情况
-kubectl get node -o wide
+1. 检查节点情况
 
+> kubectl get node -o wide
+2. 检查etcd等组件
 
+> kubectl get cs
+3. 检查k8s组件pod
+
+> kubectl get pod -n kube-system
