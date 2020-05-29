@@ -1,4 +1,7 @@
-#创建nginx附带+nfs+configmap配置
+## 创建nginx附带+nfs+configmap配置
+
+> 无状态pod不推荐使用nfs等ceph存储挂载
+
 ```
 #创建nfs-PV
 apiVersion: v1
