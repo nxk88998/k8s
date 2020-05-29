@@ -1,3 +1,4 @@
+#创建nginx附带+nfs+configmap配置
 ```
 #创建nfs-PV
 apiVersion: v1
