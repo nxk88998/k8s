@@ -3,7 +3,16 @@ https://rancher.com/quick-start/
 
 # 在线安装
 ## 系统环境
-systemctl
+
+> 建议安装在部署机下
+
+setenforce 0
+
+sed --follow-symlinks -i "s/SELINUX=enforcing/SELINUX=disabled/g" /etc/selinux/config
+
+firewall-cmd --set-default-zone=trusted
+
+firewall-cmd --complete-reload
 
 ## 安装docker
 
