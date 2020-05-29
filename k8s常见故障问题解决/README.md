@@ -40,9 +40,12 @@ node3   Ready    <none>   17d   v1.16.9
 > 解决方式: 请查看docker容器haproxy是否正常启动
 
 检查时间是否同步
-> date
-> 解决方法：1. 同步时间 yum install -y ntp && systemctl restart ntpd &&  systemctl enable ntpd 
-            2. 配置时区： timedatectl set-timezone 'Asia/Shanghai'
+> 查看时间命令 date 
+
+> 解决方法：
+> 1. 同步时间 yum install -y ntp && systemctl restart ntpd &&  systemctl enable ntpd 
+
+> 2. 配置时区： timedatectl set-timezone 'Asia/Shanghai'
 
 检查证书是否是否一致
 > kubeadm reset
