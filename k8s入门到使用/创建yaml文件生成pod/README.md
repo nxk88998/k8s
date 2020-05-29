@@ -1,6 +1,6 @@
-YAML文件是k8s创建pod的基础方式，即使是第三方平台也是生成并引用该文件
+## YAML文件是k8s创建pod的基础方式，即使是第三方平台也是生成并引用该文件方式
 
-由于配置参数较多，先提交一份现生产使用的配置
+> 由于配置参数较多，先提交一份现生产使用的配置
 
 ```
 apiVersion: apps/v1  #pod版本
@@ -53,3 +53,5 @@ spec:
   selector:
     name: itpspod                                   #引用程序名称
 ```
+## 通过该文件启动pod
+> kubectl apply -f name.yaml
