@@ -25,7 +25,7 @@ node3   Ready    <none>   17d   v1.16.9
 检查etcd是否正常
 > kubectl get csr
 
-> 解决方式: 找对对应的etcd宿主机，重启etcd（docker start `docker ps -qa`） || 如果失败请分析报错日志
+> 解决方式: 找对对应的etcd宿主机，重启etcd（docker start \`docker ps -qa\`） || 如果失败请分析报错日志
 
 检查flannel网络是否正常
 
@@ -35,7 +35,7 @@ node3   Ready    <none>   17d   v1.16.9
 
 检查本地haproxy代理是否正常
 
->  ping `cat ~/.kube/config | grep server | awk -F "/" '{print $3}' | cut -d : -f 1`
+>  ping \`cat ~/.kube/config | grep server | awk -F "/" '{print $3}' | cut -d : -f 1\`
 
 > 解决方式: 请查看docker容器haproxy是否正常启动
 
