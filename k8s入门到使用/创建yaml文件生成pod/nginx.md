@@ -1,0 +1,1 @@
+k8s入门到使用/创建yaml文件生成pod/nginx.yaml
