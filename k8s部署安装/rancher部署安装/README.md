@@ -2,9 +2,14 @@ rancher官网
 https://rancher.com/quick-start/
 
 # 在线安装
+## 系统环境
+systemctl
+
 ## 安装docker
 
 yum install docker -y
+
+systemctl enable docker && systemctl start docker
 
 ## docker安装
 docker run -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher
