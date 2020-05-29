@@ -35,4 +35,9 @@ docker push dockername:Version
 > 举例docker push 10.1.205.153/itps/test:v$time
 
 
+## 需要注意:
+上传登入非https协议的需要配置信任列表，否则会报错不信任，自动跳转连接https
+> "insecure-registries": ["http://111.2.9.178:12346"]
 
+添加阿里云加速地址：
+> "registry-mirrors": ["https://k51dnsjw.mirror.aliyuncs.com"]
