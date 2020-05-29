@@ -13,7 +13,7 @@ ControllerManager -> ControllerManager : 生成Service的Endpoints信息
 ControllerManager -> etcd : 回调APIServer写入到etcd
 
 kubeProxy -> etcd : 通过APIServer查询并监听Service对象与其对应的Endpoints信息
-kubeProxy -> kubeProxy ：创建负载均衡器Service访问到后端Pod转发服务
+kubeProxy -> etcd : 创建负载均衡器Service访问到后端Pod转发服务
 
 @enduml
 ```
