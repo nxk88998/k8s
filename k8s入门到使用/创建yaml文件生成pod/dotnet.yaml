@@ -1,0 +1,49 @@
+apiVersion: apps/v1  #pod版本
+kind: Deployment     #pod控制器
+metadata:
+  name: itpspod
+  labels:
+    name: itpspod    #pod名称
+  namespace: lbitps  #pod命名空间
+spec:
+  replicas: 1        #pod创建数量
+  selector:
+    matchLabels:
+      name: itpspod
+  template:
+    metadata:
+      labels:
+       name: itpspod
+    spec:
+      containers:
+      - name: itpspod
+        imagePullPolicy: IfNotPresent               #程序拉取规则
+        image: 10.1.205.153/itps/itpspod:vversion   #镜像地址
+        workingDir: /opt                            #工作目录
+        command: [ "dotnet" ]                       #程序启动命令
+        args: ["itpsapps"]
+        env:                                        #pod内部变量
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Production
+        - name: TZ
+          value: Asia/Shanghai
+        ports:
+        - containerPort: itpsport                   #pod开放端口
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: itpspod
+  labels:
+    name: itpspod
+  namespace: lbitps
+spec:
+  type: NodePort                                    #pod端口方式
+  ports:
+  - port: itpsport
+    protocol: TCP
+    targetPort: itpsport                            #内部端口
+    name: http
+    nodePort: itpsport                              #对外映射端口
+  selector:
+    name: itpspod                                   #引用程序名称
