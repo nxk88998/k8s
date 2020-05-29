@@ -39,6 +39,11 @@ node3   Ready    <none>   17d   v1.16.9
 
 > 解决方式: 请查看docker容器haproxy是否正常启动
 
+检查时间是否同步
+> date
+> 解决方法：1. 同步时间 yum install -y ntp && systemctl restart ntpd &&  systemctl enable ntpd 
+            2. 配置时区： timedatectl set-timezone 'Asia/Shanghai'
+
 检查证书是否是否一致
 > kubeadm reset
 
@@ -46,6 +51,14 @@ node3   Ready    <none>   17d   v1.16.9
 
 
 **2. node节点故障**
+
+检查kubelet服务是否正常
+
+> netstat -lnp | grep kubelet
+
+> 解决方法：一般是由于flannel网络故障以及证书不一致导致。
+
+按照master故障检查一遍
 
 **3. 重要组件无法启动**
 
