@@ -36,4 +36,3 @@ docker push dockername:Version
 
 
 
-# 创建pod（yaml）
