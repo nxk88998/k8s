@@ -1,3 +1,39 @@
-创建docker镜像（Dockerfile）
+# 创建docker（Dockerfile）
 
-创建pod（yaml）
+
+**选择底层镜像**
+
+FROM microsoft/dotnet:2.2-sdk
+
+**添加导入程序文件**
+
+ADD name.tar.gz  /opt
+
+**配置环境变量**
+
+ENV ASPNETCORE_ENVIRONMENT=Production
+
+**选择工作目录**
+
+WORKDIR /opt
+
+**启动程序命令**
+
+ENTRYPOINT ["dotnet", "UCity.Module.PayGateway.dll"]
+
+## 生成docker镜像 
+> docker上传需要提前登入 docker login http://XXXX
+
+docker build -t "dockername" .
+
+> 举例docker build -t 10.1.205.153/itps/test:v$time .
+
+## 上传docker镜像
+
+docker push dockername:Version
+
+> 举例docker push 10.1.205.153/itps/test:v$time
+
+
+
+# 创建pod（yaml）
