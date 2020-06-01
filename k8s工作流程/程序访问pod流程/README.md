@@ -25,7 +25,7 @@ flannel -> docker: 跳转docker网卡IP地址
 docker -> pods: docker跳转pod ip地址
 
 
-pods -> app: 原路由返回
+pods -> app: 原路由返回响应数据包
 
 @enduml
 ```
