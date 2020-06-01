@@ -72,6 +72,8 @@ node3   Ready    <none>   17d   v1.16.9
 
 ![](677afd760a09965a192b19438d5d749.png)
 
+![](1e4115ddbdd566dd476f356b7a1b8f3.png)
+
 2. pod创建故障
 3. pod运行故障
 
