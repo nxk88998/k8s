@@ -100,11 +100,30 @@ kubectl apply -f test.yaml
 
 > ImagePullBackOff： 正在重试拉取镜像，确认网络以及镜像权限是否正确
 
-3. 正常运行故障
-
+更多纤细参考 https://www.bookstack.cn/read/kubernetes-practice-guide/troubleshooting-problems-pod-keep-pending.md
 
 
 # 异常现象
+
 1. pod拉取镜像失败
+
+
 2. 一直处于状态
+
+> Evicted 出现该现象一般是由于本node资源不足出现驱赶至别的node节点，当出现驱赶失败会导致创建大量Evicted状态的pod，进一步影响性能。
+
+解决方法:
+
+查询驱赶原因
+
+> kubectl describe pod (pod-name) -n (namespace)
+
+解决后删除改状态pod
+
+> kubectl delete pod `kubectl get pod -n (namespace) | grep Evicted | awk '{print $1}'` -n  (namespace)
+
 3. pod无法上网
+
+
+
+
