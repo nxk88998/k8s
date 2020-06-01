@@ -69,6 +69,9 @@ node3   Ready    <none>   17d   v1.16.9
 
 # pod故障
 1. yaml文件格式错误
+
+![](677afd760a09965a192b19438d5d749.png)
+
 2. pod创建故障
 3. pod运行故障
 
