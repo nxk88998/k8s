@@ -34,11 +34,27 @@ rancher（牧场主）
 > 3， 选择或者创建命名空间
 ![](images/c2.png)
 
+配置端口（可选）
+> 1,输入pod-server名称 2，程序内部端口 3，外部映射端口
+![](images/c3.jpg)
 
+配置环境变量
 
-![](images/c3.png)
+> TZ代表时区为上海
 
-222
+> ASPNETCORE_ENVIRONMENT 为程序启动环境环境变量 
+> Development为测试 
+> Production为生产
+
 ![](images/c4.png)
+
+
+
+
+
+
+
+
+
 
 三，其他
