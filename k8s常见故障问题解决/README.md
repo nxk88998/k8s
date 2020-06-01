@@ -146,6 +146,11 @@ kubectl apply -f (name-yaml文件)
 
 # 3. pod无法上网
 
+解决方法:
+
+排查是否为本地网络故障
+
+查看pod
 
 
 
