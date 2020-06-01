@@ -22,7 +22,15 @@ rancher（牧场主）
 
 > UI人性化的部署pod，拥有pod的所有权限，但是部署速度慢，无法共用yaml文件。
 
-![](images/c1.png)
+部署服务pod
 
+![](images/c1.png)
+222
+
+![](images/c2.png)
+222
+![](images/c3.png)
+222
+![](images/c4.png)
 
 三，其他
