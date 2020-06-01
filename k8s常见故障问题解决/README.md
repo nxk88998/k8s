@@ -142,7 +142,7 @@ kubectl apply -f (name-yaml文件)
 
 解决后删除改状态pod
 
-> kubectl delete pod `kubectl get pod -n (namespace) | grep Evicted | awk '{print $1}'` -n  (namespace)
+> kubectl delete pod \`kubectl get pod -n (namespace) | grep Evicted | awk '{print $1}'\` -n  (namespace)
 
 # 3. pod无法上网
 
