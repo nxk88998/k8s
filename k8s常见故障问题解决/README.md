@@ -70,11 +70,20 @@ node3   Ready    <none>   17d   v1.16.9
 # pod故障
 1. yaml文件格式错误
 
+kubectl apply -f test.yaml
+出现报错！
+分析：提示(Deployment.spec.selector）在这个层级下的name字段错误
+
 ![](677afd760a09965a192b19438d5d749.png)
+
+查看后发现当RC控制器换成Deployment后需要在name字段添加层级字段matchLabels:
 
 ![](1e4115ddbdd566dd476f356b7a1b8f3.png)
 
 2. pod创建故障
+
+
+
 3. pod运行故障
 
 # 异常现象
