@@ -68,7 +68,7 @@ node3   Ready    <none>   17d   v1.16.9
 > 后期添加，还真没遇到过
 
 # pod故障
-1. yaml文件格式错误
+# 1. yaml文件格式错误
 
 kubectl apply -f test.yaml
 出现报错！
@@ -76,11 +76,11 @@ kubectl apply -f test.yaml
 
 ![](677afd760a09965a192b19438d5d749.png)
 
-查看后发现当RC控制器换成Deployment后需要在name字段添加层级字段matchLabels:
+查看后发现当ReplicationController控制器换成Deployment后需要在name字段添加层级字段matchLabels:
 
 ![](1e4115ddbdd566dd476f356b7a1b8f3.png)
 
-2. pod创建故障
+# 2. pod创建故障
 
 ## 一般创建pod后状态分别为
 
@@ -105,10 +105,32 @@ kubectl apply -f test.yaml
 
 # 异常现象
 
-1. pod拉取镜像失败
+# 1. pod拉取镜像失败
 
+一般为这2种状态
 
-2. 一直处于状态
+ImagePullBackOff &&  ImageInspectError 
+
+解决方法:
+
+> docker pull (images-name) 确认镜像可以正常下载
+
+> cat /root/.docker/config.json | base64 -w 0  获取下载权限秘钥并转码
+
+创建yaml文件
+
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: registry-pull-secret
+data:
+  .dockerconfigjson: (cat /root/.docker/config.json | base64 -w 0 获取的秘钥值)
+type: kubernetes.io/dockerconfigjson
+```
+kubectl apply -f (name-yaml文件)
+
+# 2. 一直处于状态
 
 > Evicted 出现该现象一般是由于本node资源不足出现驱赶至别的node节点，当出现驱赶失败会导致创建大量Evicted状态的pod，进一步影响性能。
 
@@ -122,7 +144,7 @@ kubectl apply -f test.yaml
 
 > kubectl delete pod `kubectl get pod -n (namespace) | grep Evicted | awk '{print $1}'` -n  (namespace)
 
-3. pod无法上网
+# 3. pod无法上网
 
 
 
