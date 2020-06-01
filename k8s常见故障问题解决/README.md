@@ -150,7 +150,10 @@ kubectl apply -f (name-yaml文件)
 
 排查是否为本地网络故障
 
-查看pod
+查看系统组件pod是否正常
 
+![](1590996702_1_.png)
 
+如果故障请使用命令查看详细错误
 
+kubectl describe pod (pod-name) -n (namespace)
