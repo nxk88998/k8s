@@ -25,11 +25,19 @@ rancher（牧场主）
 部署服务pod
 
 ![](images/c1.png)
-222
 
+配置pod基本信息
+> 1，pod名称 
+
+> 2，输入docker镜像地址 
+
+> 3， 选择或者创建命名空间
 ![](images/c2.png)
-222
+
+
+
 ![](images/c3.png)
+
 222
 ![](images/c4.png)
 
