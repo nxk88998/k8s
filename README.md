@@ -147,4 +147,5 @@ Worker主要由kubelet和kube-proxy组成，一般还会安装kube-dns组件。
     kube-dns
         负责为整个集群提供DNS服务，通过Service名称访问相应的服务
 
-![images](images/k8s-rancher.png)
+![](images/k8s-rancher.png)
+
