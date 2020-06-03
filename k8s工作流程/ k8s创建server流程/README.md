@@ -17,4 +17,4 @@ kubeProxy -> etcd : 创建负载均衡器Service访问到后端Pod转发服务
 
 @enduml
 ```
-![](images/server-p1.jpg)
+![](../images/server-p1.jpg)
