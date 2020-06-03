@@ -149,3 +149,4 @@ Worker主要由kubelet和kube-proxy组成，一般还会安装kube-dns组件。
 
 ![](images/k8s-rancher.png)
 
+> 文章出处https://blog.csdn.net/kingboyworld/article/details/80966107
