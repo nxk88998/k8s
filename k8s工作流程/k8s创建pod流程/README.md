@@ -21,3 +21,4 @@ kubelet -> etcd : 把本节点的容器信息pod信息同步到etcd.
 
 @enduml
 ```
+![](../images/pod-p2.jpg)
