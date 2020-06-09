@@ -163,7 +163,7 @@ kubectl describe pod (pod-name) -n (namespace)
 一般改情况属于网络异常断开或者有重启服务的情况发生
 
 解决方法:
-找到改api服务的对应docker容器，找到失效的api容器，删除即可恢复，原因是k8s误认为改api为正常使用的api，导致服务器状态为CreateContainerError。
+找到该api服务的对应docker容器，找到失效的api容器，删除即可恢复，原因是k8s误认为改api为正常使用的api，导致服务器状态为CreateContainerError。
 kubectl get pod -n kube-system -o wide
 ![](1.png)
 ![](2.png)
