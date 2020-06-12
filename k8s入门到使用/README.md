@@ -6,6 +6,6 @@
 
 格式：
 
-(podname).(podnamespace).svc.cluster.local:5000
+(podsvcname).(podnamespace).svc.cluster.local:5000
 
-pod名称.命名空间名称.svc.cluster.local:端口
+podserver名称.命名空间名称.svc.cluster.local:端口
