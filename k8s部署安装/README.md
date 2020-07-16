@@ -106,7 +106,7 @@ node节点：1+N台 8核16g 500G硬盘
 ## 创建harbor
 ![](images/harbor-images.png)
 ## 创建haproxy
-![](images/loadbalancer-images.png)
+![](images/loadbalancer-images.jpg)
 ## 创建kubernetes
 ![](images/kubernetes-images.png)
 配置完成后进行安装集群
