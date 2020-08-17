@@ -80,6 +80,7 @@ node节点：1+N台 8核16g 500G硬盘
 
 > 进行时区设定 
 > timedatectl set-timezone 'Asia/Shanghai' 
+
 > yum install ntp && systemctl restart ntp 
 
 ##  **离线包安装方式,解压到部署机**
