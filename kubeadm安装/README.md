@@ -1,11 +1,17 @@
   该项目安装只需在 k8sadmin-install.sh脚本中将，network_vip虚拟地址，master和node IP地址填写完毕即可。
   
 一，确认安装k8s集群架构，是否为多master架构，推荐3 Master。
+
    master01    192.168.1.3
+   
    master02    192.168.1.4
+   
    master03    192.168.1.5
+   
    node01      192.168.1.6
+   
    node02      192.168.1.7
+   
    VIP         192.168.1.2
    
 二，配置服务器免秘钥登入
