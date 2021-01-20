@@ -36,9 +36,9 @@
   sed -i s/network_vip/$network_vip/g /etc/keepalived/keepalived.conf &&
   sed -i s/network_name/$network_name/g /etc/keepalived/keepalived.conf "
 ```
-  (有点low，后期会用ansible优化)
- 
   这里注意需要注意在每个master节点将keepalived的权重配置默认为master的IP地址结尾，如需自定义请自行修改！
+  
+  (有点low，后期会用ansible优化)
   
  五，将证书分发到各个服务器
 ```
