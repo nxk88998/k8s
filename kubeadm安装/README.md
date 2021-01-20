@@ -1,4 +1,5 @@
   该项目安装只需在 k8sadmin-install.sh脚本中将，network_vip虚拟地址，master和node IP地址填写完毕即可。
+  
 一，确认安装k8s集群架构，是否为多master架构，推荐3 Master。
    master01    192.168.1.3
    master02    192.168.1.4
@@ -8,12 +9,15 @@
    VIP         192.168.1.2
    
 二，配置服务器免秘钥登入
+
   ssh-keygen
   ssh-copy-id -p $sshport root@$host_m
   ssh-copy-id -p $sshport root@$host_n
+  
 三，配置服务器hostname主机名
   ssh root@$host_m hostnamectl set-hostname master-$host_m
   ssh root@$host_m hostnamectl set-hostname master-$host_n
+  
 四，安装下载k8s环境初始化（本项目内置离线安装包 tools）
 
   ssh root@$i "systemctl stop firewalld &&
@@ -31,6 +35,7 @@
   (有点low，后期会用ansible优化)
  
   这里注意需要注意在每个master节点将keepalived的权重配置默认为master的IP地址结尾，如需自定义请自行修改！
+  
  五，将证书分发到各个服务器
 
 USER=root
@@ -61,7 +66,11 @@ for host in ${CONTROL_PLANE_IPS}; do
 done
 
 六，手动执行集群安装
+
 kubeadm init --config=kubeadm-master.config
+
 如果需要将master也配置为node计算节点，删除污点即可
+
 #删除master污点标签，使其作为计算节点
+
 #kubectl taint node master-192.168.1.171 node-role.kubernetes.io/master-
