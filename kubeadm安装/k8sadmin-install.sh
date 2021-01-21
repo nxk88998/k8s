@@ -8,7 +8,7 @@ all="$master
 $node"
 #高可用地址或者单master地址
 network_vip="xxxx.xxx.xxx"
-
+sed -i s/network_vip/$network_vip/g kubeadm-master.config
 #####################################################
 
 version=1.19.6
@@ -45,6 +45,8 @@ do
 ################################初始化环境设置######################################
 scp ./hosts root@$i:/etc/hosts
 scp -r tools root@$i:/tmp
+keepalived_weight=`echo "$i"  | awk -F . '{print $4}'`
+echo "$i keepalived_weight=$keepalived_weight"
 ssh root@$i "systemctl stop firewalld &&
 systemctl disable firewalld &&
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux &&
@@ -52,6 +54,7 @@ setenforce 0 &&
 swapoff -a && sysctl -w vm.swappiness=0 &&
 yum install -y /tmp/tools/*  &&
 sed -i '/swap/d' /etc/fstab &&
+sed -i s/master-ip/$keepalived_weight/g /tmp/keepalived.conf &&
 systemctl restart docker"
 ssh root@$i "sed -i s/network_ip/$i/g /etc/keepalived/keepalived.conf &&
 sed -i s/network_vip/$network_vip/g /etc/keepalived/keepalived.conf &&
@@ -62,10 +65,6 @@ done
 rm -rf hosts
 #################################################################################
 #################################################################################
-#如遇错误情况，重置kubeadm reset
-kubeadm init --config=kubeadm-master.config
-#删除master污点标签，使其作为计算节点
-#kubectl taint node master-192.168.1.171 node-role.kubernetes.io/master-
 
 USER=root
 CONTROL_PLANE_IPS="$master $node"
@@ -79,7 +78,6 @@ for host in ${CONTROL_PLANE_IPS}; do
     scp /etc/kubernetes/pki/etcd/ca.crt "${USER}"@$host:etcd-ca.crt
     scp /etc/kubernetes/pki/etcd/ca.key "${USER}"@$host:etcd-ca.key
     scp /etc/kubernetes/admin.conf "${USER}"@$host:
-    scp ~/kubeadm1.19.6/kubeadm root@$host:/usr/local/bin/
     ssh ${USER}@${host} 'mkdir -p /etc/kubernetes/pki/etcd'
     ssh ${USER}@${host} 'mv /${USER}/ca.crt /etc/kubernetes/pki/'
     ssh ${USER}@${host} 'mv /${USER}/ca.key /etc/kubernetes/pki/'
@@ -92,5 +90,11 @@ for host in ${CONTROL_PLANE_IPS}; do
     ssh ${USER}@${host} 'mv /${USER}/admin.conf /etc/kubernetes/admin.conf'
     ssh ${USER}@${host} 'mkdir /${USER}/.kube'
     ssh ${USER}@${host} 'cp /etc/kubernetes/admin.conf /${USER}/.kube/config'
+    scp kubeadm root@$host:/usr/local/bin/
+    scp 10-kubeadm.conf root@$host:/etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 done
 
+#kubeadm init --config=kubeadm-master.config
+#如遇错误情况，重置kubeadm reset
+#删除master污点标签，使其作为计算节点
+#kubectl taint node master-192.168.1.171 node-role.kubernetes.io/master-

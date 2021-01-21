@@ -54,7 +54,6 @@ for host in ${CONTROL_PLANE_IPS}; do
     scp /etc/kubernetes/pki/etcd/ca.crt "${USER}"@$host:etcd-ca.crt
     scp /etc/kubernetes/pki/etcd/ca.key "${USER}"@$host:etcd-ca.key
     scp /etc/kubernetes/admin.conf "${USER}"@$host:
-    scp ~/kubeadm1.19.6/kubeadm root@$host:/usr/local/bin/
     ssh ${USER}@${host} 'mkdir -p /etc/kubernetes/pki/etcd'
     ssh ${USER}@${host} 'mv /${USER}/ca.crt /etc/kubernetes/pki/'
     ssh ${USER}@${host} 'mv /${USER}/ca.key /etc/kubernetes/pki/'
@@ -67,9 +66,14 @@ for host in ${CONTROL_PLANE_IPS}; do
     ssh ${USER}@${host} 'mv /${USER}/admin.conf /etc/kubernetes/admin.conf'
     ssh ${USER}@${host} 'mkdir /${USER}/.kube'
     ssh ${USER}@${host} 'cp /etc/kubernetes/admin.conf /${USER}/.kube/config'
+    scp kubeadm root@$host:/usr/local/bin/
+    scp 10-kubeadm.conf root@$host:/etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 done
 ```
 六，手动执行集群安装
+
+注意：kubeadm 我已经修改源码重新编译证书到期时间为100年
+
 ```
 kubeadm init --config=kubeadm-master.config
 ```
@@ -79,3 +83,4 @@ kubeadm init --config=kubeadm-master.config
 ```
 kubectl taint node master-192.168.1.171 node-role.kubernetes.io/master-
 ```
+
