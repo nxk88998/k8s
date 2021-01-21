@@ -19,7 +19,7 @@
 三，配置服务器hostname主机名
 ```
   ssh root@$host_m hostnamectl set-hostname master-$host_m
-  ssh root@$host_m hostnamectl set-hostname master-$host_n
+  ssh root@$host_n hostnamectl set-hostname master-$host_n
 ```
 四，安装下载k8s环境初始化（本项目内置离线安装包 tools）
 ```
